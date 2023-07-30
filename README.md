@@ -16,3 +16,4 @@
 
 * npm start to start database locally
  
+![image](https://github.com/samsonsim2/playplay-backend/assets/106437135/79312f99-496c-43b1-a2c2-8356023592e0)
