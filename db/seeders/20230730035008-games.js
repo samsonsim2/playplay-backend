@@ -4,7 +4,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "tags",
+      "games",
       [
         {
           title:"Ready, Aim, Throw", 
@@ -12,6 +12,13 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
+        {
+          title:"The Big Ship Sails", 
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pulvinar fermentum tincidunt. Etiam quis tellus tincidunt dui euismod convallis non ac elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",      
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        
         
       ],
       {}
