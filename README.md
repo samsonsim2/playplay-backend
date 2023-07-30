@@ -14,5 +14,5 @@
   HOST=127.0.0.1
   DIALECT=postgres
 
-*npm start to start database locally
+* npm start to start database locally
  
