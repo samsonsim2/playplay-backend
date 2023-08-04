@@ -1,10 +1,34 @@
 const db = require("../db/models/index");
+const {
+  convertArrayToObject,
+  generateRequiredTagId,
+} = require("../utils/helper");
 
-const { Game } = db;
+const { Game, Gametag, Tag } = db;
 
-async function getGames(req, res) {
+async function getSelectedGames(req, res) {
+  console.log(req.query.data);
+  const queryData = req.query.data;
   try {
-    const games = await Game.findAll();
+    // Get all tags from DB
+    const tags = await Tag.findAll();
+
+    // Convert the tags data into JSON for easy manipulation
+    const tagsJson = JSON.parse(JSON.stringify(tags));
+    // Convert the tags into an object
+    const finalTags = convertArrayToObject(tagsJson);
+
+    // Get the ids of required tags
+    const requiredTagId = generateRequiredTagId(queryData, finalTags);
+    // console.log(requiredTagId);
+
+    const games = await Gametag.findAll({
+      where: { tagId: requiredTagId },
+      include: { model: Game },
+    });
+
+    console.log(games);
+
     return res.json(games);
   } catch (err) {
     return res.status(400).json({ error: true, msg: err });
@@ -12,5 +36,5 @@ async function getGames(req, res) {
 }
 
 module.exports = {
-  getGames,
+  getSelectedGames,
 };

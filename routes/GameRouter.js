@@ -1,8 +1,8 @@
 const express = require("express");
-const { getGames } = require("../controllers/games");
+const { getSelectedGames } = require("../controllers/games");
 const router = express.Router();
 
 // Routes
-router.route("/").get(getGames);
+router.route("/").get(getSelectedGames);
 
 module.exports = router;
