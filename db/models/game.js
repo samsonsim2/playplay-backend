@@ -1,6 +1,5 @@
- 
 const { DataTypes } = require("sequelize");
-const initGame= (sequelize) =>
+const initGame = (sequelize) =>
   sequelize.define(
     "Game",
     {
@@ -8,36 +7,24 @@ const initGame= (sequelize) =>
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
       },
       title: {
-        type: DataTypes.STRING
-      },   
+        type: DataTypes.STRING,
+      },
       content: {
-        type: DataTypes.TEXT
-      },   
-      
-      tagId: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "tags",  
-          key: "id",
-        }
+        type: DataTypes.TEXT,
       },
       createdAt: {
-        
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
       updatedAt: {
-        
-        type: DataTypes.DATE
-      } 
-       
+        type: DataTypes.DATE,
+      },
     },
     {
       underscored: true,
     }
   );
 
-  
 module.exports = initGame;

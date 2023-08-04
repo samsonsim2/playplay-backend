@@ -1,53 +1,53 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
       "tags",
       [
         {
-          tag:"Speaking",         
+          tag: "Looking",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          tag:"Looking",         
+          tag: "Speaking",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          tag:"Arms",         
-          created_at: new Date(),
-          updated_at: new Date(),
-        },       
-        {
-          tag:"Legs",         
+          tag: "Arms",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          tag:"Sensitive",         
+          tag: "Legs",
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          tag:"Finger-play",         
+          tag: "Voice only",
+
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          tag:"Voice only",         
+          tag: "Sensitive",
           created_at: new Date(),
           updated_at: new Date(),
         },
-         
+        {
+          tag: "Finger-play",
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
       ],
       {}
     );
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("tags", null, {})
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete("tags", null, {});
+  },
 };

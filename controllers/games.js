@@ -2,7 +2,7 @@ const db = require("../db/models/index");
 
 const { Game } = db;
 
-async function getAll(req, res) {
+async function getGames(req, res) {
   try {
     const games = await Game.findAll();
     return res.json(games);
@@ -12,5 +12,5 @@ async function getAll(req, res) {
 }
 
 module.exports = {
-  getAll,
+  getGames,
 };
