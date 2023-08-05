@@ -22,12 +22,21 @@ async function getSelectedGames(req, res) {
     const requiredTagId = generateRequiredTagId(queryData, finalTags);
     // console.log(requiredTagId);
 
-    const games = await Gametag.findAll({
-      where: { tagId: requiredTagId },
-      include: { model: Game },
+    const games = await Game.findAll({
+      include: [
+        {
+          model: Tag,
+          through: {
+            model: Gametag,
+            attributes: [],
+          },
+          where: { id: requiredTagId },
+        },
+      ],
+      required: true,
     });
 
-    console.log(games);
+    // console.log(games);
 
     return res.json(games);
   } catch (err) {
