@@ -1,25 +1,29 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const process = require('process');
+const fs = require("fs");
+const path = require("path");
+const Sequelize = require("sequelize");
+const process = require("process");
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../../config/database.js')[env];
+const env = process.env.NODE_ENV || "development";
+const config = require(__dirname + "/../../config/database.js")[env];
 const db = {};
 
 // Imports
-const initGame = require('./game');
-const initTag = require('./tag')
-const initGametag = require('./gametag')
- 
+const initGame = require("./game");
+const initTag = require("./tag");
+const initGametag = require("./gametag");
 
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
 }
 
 // fs
@@ -43,23 +47,17 @@ if (config.use_env_variable) {
 //   }
 // });
 
-
-db.Tag = initTag(sequelize)
-db.Game = initGame(sequelize)
-db.Gametag = initGametag(sequelize)
- 
- 
- 
+db.Tag = initTag(sequelize);
+db.Game = initGame(sequelize);
+db.Gametag = initGametag(sequelize);
 
 //m-m
-db.Tag.belongsToMany(db.Game , {through:db.Gametag})
-db.Game.belongsToMany(db.Tag, {through:db.Gametag})
+db.Tag.belongsToMany(db.Game, { through: db.Gametag });
+db.Game.belongsToMany(db.Tag, { through: db.Gametag });
 db.Gametag.belongsTo(db.Tag);
 db.Gametag.belongsTo(db.Game);
 
- 
-
 db.Sequelize = Sequelize;
 
-
-module.exports = db;
+module.exports = { db, sequelize };
+// module.exports = db;
