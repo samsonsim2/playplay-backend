@@ -1,8 +1,8 @@
 {
   "scripts": {
-         
-  "start": "node index.js",
-  "build": "bash release.sh" 
+    "devStart": "nodemon index.js",
+    "start": "node index.js",
+    "build": "bash release.sh"
   },
   "dependencies": {
     "cors": "^2.8.5",
