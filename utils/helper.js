@@ -35,7 +35,28 @@ const generateRequiredTagId = (queryData, tags) => {
   return requiredTagsId;
 };
 
+/**
+ * Function to generate the final Tag id required.
+ * Returned data will be used to passed into FindAll function to get the games tagged with these ID.
+ * @param {object} queryData Data sent from frontend
+ * Example: {Looking: 'true', Speaking: 'true'}
+ * @param {object} tags Tags' ID information retrieved from DB
+ * Example: {Looking: 1, Speaking: 2}
+ * @returns {array} An array of tag ID
+ */
+const generateExcludedTagId = (queryData, tags) => {
+  const excludedTagsId = [];
+
+  for (const key in queryData) {
+    if (queryData[key] === "false") {
+      excludedTagsId.push(tags[key]);
+    }
+  }
+  return excludedTagsId;
+};
+
 module.exports = {
   convertArrayToObject,
   generateRequiredTagId,
+  generateExcludedTagId,
 };
