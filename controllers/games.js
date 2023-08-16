@@ -3,6 +3,7 @@ const {
   convertArrayToObject,
   generateRequiredTagId,
   generateExcludedTagId,
+  revertSelection,
 } = require("../utils/helper");
 const { Op, QueryTypes, Sequelize } = require("sequelize");
 
@@ -11,7 +12,11 @@ const { Game, Gametag, Tag } = db;
 async function getSelectedGames(req, res) {
   // console.log(req.query.data);
   console.log("hello");
-  const queryData = req.query.data;
+  const data = req.query.data;
+  const { queryData, selectionType } = revertSelection(data);
+  // console.log(queryData);
+  let games;
+
   try {
     // Get all tags from DB
     const tags = await Tag.findAll();
@@ -23,10 +28,14 @@ async function getSelectedGames(req, res) {
 
     // Get the ids of required tags
     const requiredTagId = generateRequiredTagId(queryData, finalTags);
-    // console.log(requiredTagId);
+    // console.log("required tag", requiredTagId);
+
+    // As play style tag id is added after play without, get the max number in the required tag id to find the required play style
+    const requiredPlayStyle = Math.max(...requiredTagId);
+    // console.log("required play style", requiredTagId);
 
     const excludedTagId = generateExcludedTagId(queryData, finalTags);
-    console.log(excludedTagId);
+    // console.log("excluded tag", excludedTagId);
 
     // const games = await Game.findAll({
     //   include: [
@@ -63,35 +72,66 @@ async function getSelectedGames(req, res) {
     //   required: false,
     // });
 
-    const games = await sequelize.query(
-      `SELECT
-  g.id AS "id",
-  g.title AS "title",
-  g.content AS "content",
-  JSON_AGG(
-    JSON_BUILD_OBJECT(
-      'id', t.id,
-      'tag', t.tag,
-      'createdAt', t.created_at,
-      'updatedAt', t.updated_at
+    if (selectionType === "playWithout") {
+      // If game contains any of the excluded tag, it will not be included in final result
+      games = await sequelize.query(
+        `SELECT
+      g.id AS "id",
+      g.title AS "title",
+      g.content AS "content",
+      JSON_AGG(
+        JSON_BUILD_OBJECT(
+          'id', t.id,
+          'tag', t.tag,
+          'createdAt', t.created_at,
+          'updatedAt', t.updated_at
+        )
+      ) AS "Tags"
+    FROM games AS g
+    JOIN gametags AS gt ON g.id = gt.game_id
+    JOIN tags AS t ON gt.tag_id = t.id
+    WHERE t.id IN (${requiredTagId})
+    AND NOT EXISTS (
+        SELECT 1
+        FROM gametags gt_exclude
+        WHERE g.id = gt_exclude.game_id
+        AND gt_exclude.tag_id IN (${excludedTagId})
     )
-  ) AS "Tags"
-FROM games AS g
-JOIN gametags AS gt ON g.id = gt.game_id
-JOIN tags AS t ON gt.tag_id = t.id
-WHERE t.id IN (${requiredTagId})
-AND NOT EXISTS (
-    SELECT 1
-    FROM gametags gt_exclude
-    WHERE g.id = gt_exclude.game_id
-    AND gt_exclude.tag_id IN (4)
-)
-GROUP BY g.id;`,
-      {
-        model: Game,
-        mapToModel: true, // pass true here if you have any mapped fields
-      }
-    );
+    GROUP BY g.id
+    ORDER BY g.id;`,
+        {
+          model: Game,
+          mapToModel: true, // pass true here if you have any mapped fields
+        }
+      );
+    } else {
+      // Result will only include games that are tagged with the required PlayStyle
+      games = await sequelize.query(
+        `SELECT
+      g.id AS "id",
+      g.title AS "title",
+      g.content AS "content",
+      JSON_AGG(
+        JSON_BUILD_OBJECT(
+          'id', t.id,
+          'tag', t.tag,
+          'createdAt', t.created_at,
+          'updatedAt', t.updated_at
+        )
+      ) AS "Tags"
+    FROM games AS g
+    JOIN gametags AS gt ON g.id = gt.game_id
+    JOIN tags AS t ON gt.tag_id = t.id
+    WHERE t.id IN (${requiredTagId})
+    AND gt.tag_id = ${requiredPlayStyle}
+    GROUP BY g.id
+    ORDER BY g.id;`,
+        {
+          model: Game,
+          mapToModel: true, // pass true here if you have any mapped fields
+        }
+      );
+    }
 
     // console.log(games);
 
