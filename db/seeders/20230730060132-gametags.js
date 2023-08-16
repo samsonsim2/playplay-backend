@@ -43,7 +43,7 @@ module.exports = {
 
         {
           game_id: 3,
-          tag_id: 5,
+          tag_id: 2,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -155,7 +155,7 @@ module.exports = {
 
         {
           game_id: 9,
-          tag_id: 1,
+          tag_id: 2,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -183,7 +183,7 @@ module.exports = {
 
         {
           game_id: 12,
-          tag_id: 1,
+          tag_id: 2,
           created_at: new Date(),
           updated_at: new Date(),
         },

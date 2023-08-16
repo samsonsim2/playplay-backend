@@ -55,8 +55,27 @@ const generateExcludedTagId = (queryData, tags) => {
   return excludedTagsId;
 };
 
+const revertSelection = (queryData) => {
+  let selectionType = "playStyle";
+
+  if (
+    queryData["Voice only"] === "false" &&
+    queryData["Sensitive"] === "false" &&
+    queryData["Finger-play"] === "false"
+  ) {
+    console.log(true);
+    queryData["Voice only"] = "true";
+    queryData["Sensitive"] = "true";
+    queryData["Finger-play"] = "true";
+    selectionType = "playWithout";
+  }
+
+  return { queryData, selectionType };
+};
+
 module.exports = {
   convertArrayToObject,
   generateRequiredTagId,
   generateExcludedTagId,
+  revertSelection,
 };
