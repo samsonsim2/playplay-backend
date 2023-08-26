@@ -12,7 +12,7 @@ app.use(cors());
 app.use("/games", gamesRouter);
 
 const port = 3000;
-
+console.log("test")
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
 });
