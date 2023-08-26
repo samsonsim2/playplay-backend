@@ -55,10 +55,28 @@ const generateExcludedTagId = (queryData, tags) => {
   return excludedTagsId;
 };
 
+/**
+ * Function to set selection of data for SQL query
+ * @param {object} queryData
+ * @returns {object} Revised query data and selection type
+ */
 const revertSelection = (queryData) => {
   let selectionType = "playStyle";
 
+  // If no tags are selected, return selection type as all so that SQL query can get all games
   if (
+    queryData["Looking"] === "true" &&
+    queryData["Speaking"] === "true" &&
+    queryData["Arms"] === "true" &&
+    queryData["Legs"] === "true" &&
+    queryData["Voice only"] === "false" &&
+    queryData["Sensitive"] === "false" &&
+    queryData["Finger-play"] === "false"
+  ) {
+    selectionType = "all";
+    return { queryData, selectionType };
+  } else if (
+    // If no playstyle is selected, set all play style to true. So that SQL query can get all games with all playstyle
     queryData["Voice only"] === "false" &&
     queryData["Sensitive"] === "false" &&
     queryData["Finger-play"] === "false"
