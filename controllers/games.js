@@ -33,6 +33,10 @@ async function getSelectedGames(req, res) {
 
     const excludedTagId = generateExcludedTagId(queryData, finalTags);
     // If no tags are selected, return all games
+
+    console.log("requiredTagId", requiredTagId);
+    console.log("requiredPlayStyle", requiredPlayStyle);
+
     if (selectionType === "all") {
       games = await sequelize.query(
         `SELECT
@@ -91,26 +95,27 @@ async function getSelectedGames(req, res) {
       );
     } else {
       // Result will only include games that are tagged with the required PlayStyle
+      // The HAVING clause includes only those games where there is at least one associated tag with requiredPlayStyle
       games = await sequelize.query(
         `SELECT
-      g.id AS "id",
-      g.title AS "title",
-      g.content AS "content",
-      JSON_AGG(
+    g.id AS "id",
+    g.title AS "title",
+    g.content AS "content",
+    JSON_AGG(
         JSON_BUILD_OBJECT(
-          'id', t.id,
-          'tag', t.tag,
-          'createdAt', t.created_at,
-          'updatedAt', t.updated_at
+            'id', t.id,
+            'tag', t.tag,
+            'createdAt', t.created_at,
+            'updatedAt', t.updated_at
         )
-      ) AS "Tags"
-    FROM games AS g
-    JOIN gametags AS gt ON g.id = gt.game_id
-    JOIN tags AS t ON gt.tag_id = t.id
-    WHERE t.id IN (${requiredTagId})
-    AND gt.tag_id = ${requiredPlayStyle}
-    GROUP BY g.id
-    ORDER BY g.id;`,
+    ) AS "Tags"
+FROM games AS g
+JOIN gametags AS gt ON g.id = gt.game_id
+JOIN tags AS t ON gt.tag_id = t.id
+WHERE t.id IN (${requiredTagId})
+GROUP BY g.id
+HAVING bool_or(gt.tag_id = ${requiredPlayStyle})
+ORDER BY g.id;`,
         {
           model: Game,
           mapToModel: true, // pass true here if you have any mapped fields
