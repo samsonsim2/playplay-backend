@@ -7,6 +7,531 @@ module.exports = {
       "gametags",
       [
         {
+          game_id: 1,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 1,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 2,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 2,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 3,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 3,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 4,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 4,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 5,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 5,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 6,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 6,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 6,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 7,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 7,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 7,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 7,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 8,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 8,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 9,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 9,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 10,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 11,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 11,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 12,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 12,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 12,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 13,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 13,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 14,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 14,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 14,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 15,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 15,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 16,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 16,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 16,
+          tag_id: 7,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 17,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 17,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 18,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 18,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 18,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 19,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 19,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 19,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 20,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 20,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 20,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 21,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 21,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 21,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 21,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 22,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 22,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 22,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 23,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 23,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 23,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 23,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 24,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 24,
+          tag_id: 4,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 24,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 25,
+          tag_id: 7,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 25,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 26,
+          tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 27,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 27,
+          tag_id: 7,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 27,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 28,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 28,
+          tag_id: 7,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 28,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 29,
+          tag_id: 3,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 29,
+          tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 29,
+          tag_id: 7,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 29,
+          tag_id: 6,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
           game_id: 30,
           tag_id: 7,
           created_at: new Date(),
