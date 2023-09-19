@@ -10,10 +10,9 @@ const { Op, QueryTypes, Sequelize } = require("sequelize");
 const { Game, Gametag, Tag } = db;
 
 async function getSelectedGames(req, res) {
-  console.log("hello");
   const data = req.query.data;
   const { queryData, selectionType } = revertSelection(data);
-  console.log("selectionType", selectionType);
+  // console.log("selectionType", selectionType);
   let games;
 
   try {
@@ -36,8 +35,8 @@ async function getSelectedGames(req, res) {
     const excludedTagId = generateExcludedTagId(queryData, finalTags);
     // If no tags are selected, return all games
 
-    console.log("requiredTagId", requiredTagId);
-    console.log("requiredPlayStyle", requiredPlayStyle);
+    // console.log("requiredTagId", requiredTagId);
+    // console.log("requiredPlayStyle", requiredPlayStyle);
 
     if (selectionType === "all") {
       games = await sequelize.query(
