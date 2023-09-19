@@ -273,13 +273,6 @@ module.exports = {
         },
 
         {
-          game_id: 17,
-          tag_id: 1,
-          created_at: new Date(),
-          updated_at: new Date(),
-        },
-
-        {
           game_id: 18,
           tag_id: 2,
           created_at: new Date(),
@@ -450,6 +443,13 @@ module.exports = {
         {
           game_id: 25,
           tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 25,
+          tag_id: 3,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -460,6 +460,12 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
+        {
+          game_id: 26,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
 
         {
           game_id: 27,
@@ -548,6 +554,13 @@ module.exports = {
         {
           game_id: 30,
           tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 30,
+          tag_id: 3,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -569,6 +582,13 @@ module.exports = {
         {
           game_id: 32,
           tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 32,
+          tag_id: 5,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -681,6 +701,13 @@ module.exports = {
         {
           game_id: 37,
           tag_id: 1,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
+          game_id: 37,
+          tag_id: 7,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -1057,8 +1084,21 @@ module.exports = {
         },
 
         {
+          game_id: 59,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+
+        {
           game_id: 60,
           tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          game_id: 60,
+          tag_id: 5,
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -1132,10 +1172,22 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
+        {
+          game_id: 65,
+          tag_id: 5,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
 
         {
           game_id: 66,
           tag_id: 2,
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          game_id: 66,
+          tag_id: 5,
           created_at: new Date(),
           updated_at: new Date(),
         },

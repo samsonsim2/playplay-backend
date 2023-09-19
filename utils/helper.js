@@ -27,6 +27,8 @@ const convertArrayToObject = (arr) => {
 const generateRequiredTagId = (queryData, tags) => {
   const requiredTagsId = [];
 
+  console.log(queryData);
+
   for (const key in queryData) {
     if (queryData[key] === "true") {
       requiredTagsId.push(tags[key]);
