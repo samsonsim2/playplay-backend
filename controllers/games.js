@@ -112,8 +112,7 @@ async function getSelectedGames(req, res) {
     ) AS "Tags"
 FROM games AS g
 JOIN gametags AS gt ON g.id = gt.game_id
-JOIN tags AS t ON gt.tag_id = t.id
-WHERE t.id IN (${requiredTagId})
+RIGHT JOIN tags AS t ON gt.tag_id = t.id
 GROUP BY g.id
 HAVING bool_or(gt.tag_id = ${requiredPlayStyle})
 ORDER BY g.id;`,
